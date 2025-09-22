@@ -1,7 +1,7 @@
 #/usr/bin/bash
 
 # Base cli tools
-brew install neovim stow zoxide lsd luarocks fzf rg git
+brew install neovim stow zoxide lsd luarocks fzf rg git fd
 
 # Terminal
 brew install --cask ghostty

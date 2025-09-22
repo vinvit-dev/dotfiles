@@ -11,3 +11,7 @@ window-decoration = true
 
 background-opacity = 0.95
 background-blur-radius = 50
+
+# add default size
+window-width = 125
+window-height = 33

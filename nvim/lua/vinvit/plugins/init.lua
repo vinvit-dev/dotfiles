@@ -5,7 +5,7 @@
 return {
   vim.keymap.set('i', 'jk', '<Esc>'),
 
-  require 'custom.plugins.nvim-tmux-nabigation',
-  require 'custom.plugins.transparent',
-  require 'custom.plugins.catppuccin',
+  require 'vinvit.plugins.nvim-tmux-nabigation',
+  require 'vinvit.plugins.transparent',
+  require 'vinvit.plugins.catppuccin',
 }
