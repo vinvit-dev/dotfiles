@@ -12,6 +12,8 @@ return {
   lazy = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<Space>e', ':Neotree toggle<CR>', desc = 'NeoTree', silent = true },
+    { '<Space>o', ':Neotree focus<CR>', desc = 'NeoTree focus', silent = true },
   },
   opts = {
     filesystem = {

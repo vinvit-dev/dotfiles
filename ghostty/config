@@ -9,5 +9,5 @@ window-decoration = true
 
 #keybind = global:cmd+s=toggle_quick_terminal
 
-background-opacity = 0.9
-background-blur-radius = 70
+background-opacity = 0.95
+background-blur-radius = 50
