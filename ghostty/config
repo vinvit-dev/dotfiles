@@ -9,9 +9,13 @@ window-decoration = true
 
 #keybind = global:cmd+s=toggle_quick_terminal
 
-background-opacity = 0.95
-background-blur-radius = 50
+background-opacity = 0.93
+background-blur-radius = 20
 
 # add default size
 window-width = 125
 window-height = 33
+
+
+# Macos use options as alt
+macos-option-as-alt = true

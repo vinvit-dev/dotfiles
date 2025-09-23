@@ -8,4 +8,5 @@ return {
   require 'vinvit.plugins.nvim-tmux-nabigation',
   require 'vinvit.plugins.transparent',
   require 'vinvit.plugins.catppuccin',
+  require 'vinvit.plugins.rust',
 }

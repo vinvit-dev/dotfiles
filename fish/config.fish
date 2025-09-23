@@ -5,6 +5,10 @@ end
 # Disable startup message
 set fish_greeting
 
+
+# add  .local/bin to $PATH variable
+set PATH ~/.local/bin $PATH
+
 # Better looking ls command
 alias ls="lsd"
 
