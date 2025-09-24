@@ -1,7 +1,7 @@
 #/usr/bin/bash
 
 # Base cli tools
-brew install neovim stow zoxide lsd luarocks fzf ripgrep git fd highlight htop gcc make lazygit
+brew install neovim stow zoxide lsd luarocks fzf ripgrep git fd highlight htop gcc make lazygit fisher
 
 # Terminal
 brew install --cask ghostty
