@@ -13,4 +13,5 @@ return {
   require 'vinvit.plugins.catppuccin',
   require 'vinvit.plugins.rust',
   require 'vinvit.plugins.lazygit',
+  require 'vinvit.plugins.claude-code',
 }
