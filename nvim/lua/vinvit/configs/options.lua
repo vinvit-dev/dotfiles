@@ -13,9 +13,9 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Tabs settings
--- vim.o.tabstop = 2
--- vim.o.autoindent = true
--- vim.o.smartindent = true
+vim.o.tabstop = 2
+vim.o.autoindent = true
+vim.o.smartindent = true
 
 -- Make line numbers default
 vim.o.number = true
