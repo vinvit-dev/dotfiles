@@ -23,14 +23,14 @@ return {
         snacks_win_opts = {
           keys = {
             claude_hide = {
-              '<Esc>',
+              '<C-q>',
               function(self)
                 self:hide()
               end,
               mode = 't',
               desc = 'Hide',
             },
-            claude_close = { 'q', 'close', mode = 'n', desc = 'Close' },
+            claude_close = { '<M-q>', 'close', mode = 'n', desc = 'Close' },
           },
         }, -- Opts to pass to `Snacks.terminal.open()` - see Floating Window section below
 

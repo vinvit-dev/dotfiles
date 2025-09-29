@@ -4,7 +4,9 @@ return {
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
-      diagnostic = 'nvim_lsp',
+      options = {
+        diagnostic = 'nvim_lsp',
+      },
     },
   },
 }
