@@ -45,4 +45,4 @@ require('lazy').setup {
   },
 }
 
--- TODO: Need reed more about modelines.
+-- TODO: Need read more about modelines.

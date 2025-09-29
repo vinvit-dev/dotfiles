@@ -15,4 +15,5 @@ return {
   require 'vinvit.plugins.lazygit',
   require 'vinvit.plugins.claude-code',
   require 'vinvit.plugins.copilot',
+  require 'vinvit.plugins.bufferline',
 }
