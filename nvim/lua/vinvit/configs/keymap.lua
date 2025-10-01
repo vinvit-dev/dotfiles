@@ -14,3 +14,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Alt j and k to move between buffers.
 vim.keymap.set('n', '<M-j>', '<cmd>bprevious<cr>', { desc = 'Previous buffer' })
 vim.keymap.set('n', '<M-k>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+
+-- Close buffer
+vim.keymap.set('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Close buffer' })

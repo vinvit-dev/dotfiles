@@ -83,6 +83,75 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- PHPCS coding standard selector
+      vim.keymap.set('n', '<leader>sp', function()
+        local pickers = require 'telescope.pickers'
+        local finders = require 'telescope.finders'
+        local conf = require('telescope.config').values
+        local actions = require 'telescope.actions'
+        local action_state = require 'telescope.actions.state'
+
+        -- Get available standards from phpcs -i
+        local standards = {}
+        local ok, handle = pcall(io.popen, '/Users/vinvit/.composer/vendor/bin/phpcs -i')
+        if ok and handle then
+          local result = handle:read '*a'
+          handle:close()
+
+          -- Parse the output to extract standards
+          local standards_str = result:match 'The installed coding standards are (.+)'
+          if standards_str then
+            -- Remove trailing whitespace/newlines
+            standards_str = standards_str:gsub('%s*\n.*', ''):gsub('^%s+', ''):gsub('%s+$', '')
+            -- Replace 'and' with comma for consistent parsing
+            standards_str = standards_str:gsub('%s+and%s+', ', ')
+            -- Split by comma
+            for standard in standards_str:gmatch '[^,]+' do
+              standard = standard:gsub('^%s+', ''):gsub('%s+$', '') -- trim whitespace
+              if standard ~= '' then
+                table.insert(standards, standard)
+              end
+            end
+          end
+        end
+
+        -- Fallback to default standards if phpcs failed or returned no standards
+        if #standards == 0 then
+          standards = { 'PSR12', 'PSR2', 'PSR1', 'Drupal', 'Squiz', 'PEAR', 'Zend' }
+        end
+
+        pickers
+          .new({}, {
+            prompt_title = 'Select PHPCS Coding Standard',
+            finder = finders.new_table {
+              results = standards,
+              entry_maker = function(entry)
+                return {
+                  value = entry,
+                  display = entry,
+                  ordinal = entry,
+                }
+              end,
+            },
+            sorter = conf.generic_sorter {},
+            attach_mappings = function(prompt_bufnr)
+              actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection then
+                  vim.g.phpcs_standard = selection.value
+                  print('PHPCS standard set to: ' .. vim.g.phpcs_standard)
+
+                  -- Trigger linting with new standard
+                  require('lint').try_lint()
+                end
+              end)
+              return true
+            end,
+          })
+          :find()
+      end, { desc = '[S]elect [P]HPCS standard' })
     end,
   },
 }

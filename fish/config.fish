@@ -32,3 +32,4 @@ alias gcm="git commit -m"
 
 # fzf alias to open file in nvim
 alias f='nvim "$(fzf)"'
+

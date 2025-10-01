@@ -11,3 +11,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- Set filetype for Drupal files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  desc = 'Set filetype for Drupal files',
+  group = vim.api.nvim_create_augroup('drupal-filetype', { clear = true }),
+  pattern = { '*.module', '*.theme', '*.inc', '*.install', '*.profile' },
+  callback = function()
+    vim.bo.filetype = 'php'
+  end,
+})
