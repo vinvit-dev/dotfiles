@@ -197,11 +197,15 @@ return {
           settings = {
             intelephense = {
               files = {
-                associations = { '*.php', '*.phtml', '*.theme', '*.module', '*.inc', '*.install', '*.profile' },
+                associations = { '*.php', '*.theme', '*.module', '*.inc', '*.install', '*.profile' },
               },
             },
           },
         },
+        clangd = {},
+        gopls = {},
+        dockerls = {},
+        sqlls = {},
       }
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
@@ -209,6 +213,12 @@ return {
         'prettier',
         'eslint_d',
         'luacheck',
+        'clangd',
+        'clang-format',
+        'gofumpt',
+        'goimports',
+        'golangci-lint',
+        'sql-formatter',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -227,17 +237,17 @@ return {
       -- NOTE: Try to connect custom lsp !temporrary
       local configs = require 'lspconfig.configs'
 
-      configs.drupal_lsp = { -- Replace 'my_custom_lsp' with a unique name for your server
-        default_config = {
-          cmd = { '/Users/vinvit/Projects/drupal_lsp/target/debug/drupal_lsp' }, -- The command to start the language server
-          filetypes = { 'php', 'html', 'lua', 'yaml', 'test' }, -- List of filetypes this LSP will handle
-          root_dir = lspconfig.util.root_pattern('.git', 'vendor', 'composer.json'), -- How to find the project root
-          settings = {}, -- Optional LSP server-specific settings
-        },
-      }
-      lspconfig.drupal_lsp.setup {
-        capabilities = capabilities,
-      }
+      -- configs.drupal_lsp = {
+      --   default_config = {
+      --     cmd = { '/Users/vinvit/Projects/drupal_lsp/target/debug/drupal_lsp' },
+      --     filetypes = { 'php', 'html', 'lua', 'yaml', 'test' },
+      --     root_dir = lspconfig.util.root_pattern('.git', 'vendor', 'composer.json'),
+      --     settings = {},
+      --   },
+      -- }
+      -- lspconfig.drupal_lsp.setup {
+      --   capabilities = capabilities,
+      -- }
     end,
   },
 }

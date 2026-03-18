@@ -27,6 +27,7 @@ return {
         'tsx',
         'rust',
         'json',
+        'dockerfile',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,

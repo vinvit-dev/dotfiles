@@ -1,4 +1,5 @@
 return {
+  { 'tpope/vim-sleuth' }, -- auto-detect indent style from file content
   require 'vinvit.plugins.gitsigns',
   require 'vinvit.plugins.which-key',
   require 'vinvit.plugins.telescope',

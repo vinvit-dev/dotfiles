@@ -22,7 +22,7 @@ return {
           -- Disable "format_on_save lsp_fallback" for languages that don't
           -- have a well standardized coding style. You can add additional
           -- languages here or re-enable it for the disabled ones.
-          local disable_filetypes = { c = true, cpp = true }
+          local disable_filetypes = {}
           if disable_filetypes[vim.bo[bufnr].filetype] then
             return nil
           else
@@ -39,6 +39,9 @@ return {
               return { '--standard=' .. (vim.g.phpcs_standard or 'Drupal'), '$FILENAME' }
             end,
           },
+          prettier = {
+            require_cwd = true,
+          },
         },
         formatters_by_ft = {
           lua = { 'stylua' },
@@ -47,6 +50,10 @@ return {
           typescript = { 'eslint_d', 'prettier' },
           typescriptreact = { 'eslint_d', 'prettier' },
           php = { 'phpcbf' },
+          c = { 'clang-format' },
+          cpp = { 'clang-format' },
+          go = { 'goimports', 'gofumpt' },
+          sql = { 'sql-formatter' },
         },
       }
     end,
